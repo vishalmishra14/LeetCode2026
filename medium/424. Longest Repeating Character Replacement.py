@@ -44,21 +44,16 @@ class Solution:
         #     result = max(result, right - left + 1)
         
         ## Method 2
-
-        L, count = 0, 0
-
         result = 0
-        R = 1
-
-        while k | len(s):
-            if s[L] != s[R]:
-                count += 1
-                s[R] = s[L]
-                k -= 1
-                R +=1
-            count += 1
-            result = max(result, count)
+        count, L = {}, 0
+        for R in range(len(s)):
+            count[s[R]] = count.get(s[R], 0) + 1
+            while R-L+1-max(count.values())>k:
+                count[s[L]] -= 1
+                L += 1
+            result = max(result, R-L+1)
         return result   
     
 s = Solution()
 print(s.characterReplacement("ABAB", 2)) # 4
+print(s.characterReplacement("AAABABB", 1)) # 5
