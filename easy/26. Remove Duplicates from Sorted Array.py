@@ -59,6 +59,18 @@ class Solution:
         #     if i not in result:
         #         result.append(i)
         # return result
+
+        ## Method 2 TC O(n) and SC O(1)
+        # L, R = 1, 1
+        # while R < len(nums):
+        #     if nums[R-1] != nums[R]:
+        #         nums[L] = nums[R]
+        #         L += 1
+        #     else:
+        #             R += 1
+        # return L # if list is required then return nums[:L] 
+
+
         ## Method 2 TC O(n) and SC O(1)
         L, R = 0, 1
         while R < len(nums):
