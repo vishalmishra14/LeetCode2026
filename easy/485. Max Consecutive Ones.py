@@ -41,5 +41,5 @@ class Solution:
            max_count = max(max_count, cur_count)
        return max_count
 s = Solution()
-print(s.findMaxConsecutiveOnes([1,1,0,1,1,1]))
-print(s.findMaxConsecutiveOnes([1,0,1,1,0,1]))
+print(s.findMaxConsecutiveOnes([1,1,0,1,1,1])) # 3
+print(s.findMaxConsecutiveOnes([1,0,1,1,0,1])) # 2
