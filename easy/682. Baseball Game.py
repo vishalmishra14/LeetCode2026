@@ -92,6 +92,6 @@ class Solution:
                 stack.push(int(operation))
         return sum(stack.stack)
 s = Solution()
-print(s.calPoints(["5","2","C","D","+"])) # 15
+print(s.calPoints(["5","2","C","D","+"])) # 30
 print(s.calPoints(["5","-2","4","C","D","9","+","+"])) # 27
 print(s.calPoints(["1","C"])) # 0
