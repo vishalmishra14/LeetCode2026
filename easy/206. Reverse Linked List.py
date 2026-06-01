@@ -42,6 +42,7 @@ class ListNode:
         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # iterative solution TC O(n) SC O(1)
         prev = None
         cur = head
         while cur:
@@ -50,6 +51,16 @@ class Solution:
             prev = cur
             cur = temp
         return prev
+        # recursive solution TC O(n) SC O(n)
+        if not head:
+            return None
+        new_head = head
+
+        if head.next:
+            new_head = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        return new_head
     
 # Example usage:
 # Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
