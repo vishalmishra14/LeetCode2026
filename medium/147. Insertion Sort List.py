@@ -59,7 +59,6 @@ class Solution:
                 head = head.next
         return prev.next
 
-
         # cur = head
         # while cur and cur.next:
         #     if cur.val > cur.next.val:
