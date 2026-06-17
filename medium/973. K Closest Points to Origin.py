@@ -36,14 +36,54 @@ Constraints:
 
 """
 from typing import List
+import heapq
 
 class Solution:
+    # Sorting with Custom Comparator
     def euclidean_distance(self, point:  List[int]) -> float:
         return (point[0] ** 2 + point[1] ** 2) ** 0.5
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         points.sort(key=self.euclidean_distance)
-        return points[:k]  
+        return points[:k] 
 
+    # # Sorting with Lambda Function
+    # def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    #     points.sort(key=lambda p: p[0] **2 + p[1] ** 2)
+    #     return points[:k]
+
+    # # Using Min-Heap
+    # def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    #     min_heap = []
+    #     for point in points:
+    #         distance = point[0] ** 2 + point[1] ** 2
+    #         min_heap.append([distance, point])
+    #     heapq.heapify(min_heap)
+    #     return [heapq.heappop(min_heap)[1] for _ in range(k)]
+
+    # # Using Quickselect Algorithm
+    # def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    #     euclidean_distance = lambda p: p[0] ** 2 + p[1] ** 2
+    #     def partition(self, left: int, right: int) -> int:
+    #         pivotIdx = right
+    #         pivotDist = euclidean_distance(points[pivotIdx])
+    #         storeIdx = left
+    #         for i in range(left, right): 
+    #             if euclidean_distance(points[i]) < pivotDist:
+    #                 points[storeIdx], points[i] = points[i], points[storeIdx]
+    #                 storeIdx += 1
+    #         points[storeIdx], points[pivotIdx] = points[pivotIdx], points[storeIdx]
+    #         return storeIdx
+    #     L, R = 0, len(points) - 1
+    #     pivot = len(points)
+    #     while pivot != k:
+    #         pivot = partition(self, L, R)
+    #         if pivot < k:
+    #             L = pivot + 1
+    #         else:
+    #             R = pivot - 1
+    #     return points[:k]
+        
+        
 s = Solution()
 print(s.kClosest([[1,3],[-2,2]], 1))  #[[-2,2]]
 print(s.kClosest([[3,3],[5,-1],[-2,4]], 2))  #[[3,3],[-2,4]] or [[-2,4],[3,3]]
