@@ -39,8 +39,6 @@ n == matrix[i].length
 from typing import List
 
 class Solution:
-    def binarySearch(self, arr: List[int], target: int) -> bool:
-        L, R = 0 , len(arr) - 1
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         # Brute Force TC O(m * n)
         # for num in matrix:
