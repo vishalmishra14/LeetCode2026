@@ -70,3 +70,7 @@ s = Solution()
 piles = [3,6,7,11] 
 h = 8
 print(s.minEatingSpeed(piles, h)) # 4
+
+piles = [312884470]
+h = 968709470
+print(s.minEatingSpeed(piles, h)) # 1
