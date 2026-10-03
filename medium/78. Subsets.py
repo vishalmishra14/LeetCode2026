@@ -29,6 +29,7 @@ All the numbers of nums are unique.
 
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
+        ## Backtracking approach
         res: list[list[int]] = []
 
         subset: list[int] = []
