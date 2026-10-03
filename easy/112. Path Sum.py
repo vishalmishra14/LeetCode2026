@@ -51,22 +51,22 @@ class Solution:
     def hasPathSum(self, root: TreeNode | None, targetSum: int) -> bool:
 
         # Method 1
-        # path : list[int] = []
+        path : list[int] = []
 
-        # if not root:
-        #     return False
+        if not root:
+            return False
 
-        # path.append(root.val)
+        path.append(root.val)
 
-        # if not root.left and not root.right:
-        #     return sum(path) == targetSum
+        if not root.left and not root.right:
+            return sum(path) == targetSum
 
-        # if self.hasPathSum(root.left, targetSum - root.val):
-        #     return True
-        # if self.hasPathSum(root.right, targetSum - root.val):
-        #     return True
+        if self.hasPathSum(root.left, targetSum - root.val):
+            return True
+        if self.hasPathSum(root.right, targetSum - root.val):
+            return True
 
-        # return False
+        return False
 
         #Method 2 (Alternative approach)
         from typing import Optional
