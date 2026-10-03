@@ -49,22 +49,37 @@ class TreeNode:
         self.right = right
 class Solution:
     def hasPathSum(self, root: TreeNode | None, targetSum: int) -> bool:
-        path : list[int] = []
 
-        if not root:
-            return False
+        # Method 1
+        # path : list[int] = []
 
-        path.append(root.val)
+        # if not root:
+        #     return False
 
-        if not root.left and not root.right:
-            return sum(path) == targetSum
+        # path.append(root.val)
 
-        if self.hasPathSum(root.left, targetSum - root.val):
-            return True
-        if self.hasPathSum(root.right, targetSum - root.val):
-            return True
+        # if not root.left and not root.right:
+        #     return sum(path) == targetSum
 
-        return False
+        # if self.hasPathSum(root.left, targetSum - root.val):
+        #     return True
+        # if self.hasPathSum(root.right, targetSum - root.val):
+        #     return True
+
+        # return False
+
+        #Method 2 (Alternative approach)
+        from typing import Optional
+
+        def dfs(node: Optional[TreeNode], currentSum: int) -> bool:
+            if not node:
+                return False
+            currentSum += node.val
+            if not node.left and not node.right:
+                return currentSum == targetSum
+            return dfs(node.left, currentSum) or dfs(node.right, currentSum)
+
+        return dfs(root, 0)
 
 solution = Solution()
 root = TreeNode(5)
