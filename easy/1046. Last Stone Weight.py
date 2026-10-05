@@ -57,3 +57,4 @@ print(solution.lastStoneWeight([2,7,4,1,8,1])) # 1
 print(solution.lastStoneWeight([1])) # 1
 print(solution.lastStoneWeight([3,3,3])) # 3
 print(solution.lastStoneWeight([10,4,2,10])) # 2
+print(solution.lastStoneWeight([3,7,2])) # 2
