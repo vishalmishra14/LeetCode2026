@@ -35,18 +35,18 @@ class Solution:
     def climbStairs(self, n: int) -> int:
         # dynamic programming approach with backtracking
         # Bottom up approach
-        # one = 1
-        # two = 1
-        # for _ in range(2, n + 1):
-        #     temp = one
-        #     one = one + two
-        #     two = temp
-        # return one
+        one = 1
+        two = 1
+        for _ in range(2, n + 1):
+            temp = one
+            one = one + two
+            two = temp
+        return one
 
         # Brute force approach (recursive)
-        # if n <=2:
-        #     return n
-        # return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        if n <=2:
+            return n
+        return self.climbStairs(n - 1) + self.climbStairs(n - 2)
 
         # Memoization approach (top-down dynamic programming with caching)
         memo = {}
