@@ -34,13 +34,29 @@ Constraints:
 class Solution:
     def climbStairs(self, n: int) -> int:
         # dynamic programming approach with backtracking
-        one = 1
-        two = 1
-        for _ in range(2, n + 1):
-            temp = one
-            one = one + two
-            two = temp
-        return one
+        # Bottom up approach
+        # one = 1
+        # two = 1
+        # for _ in range(2, n + 1):
+        #     temp = one
+        #     one = one + two
+        #     two = temp
+        # return one
+
+        # Brute force approach (recursive)
+        # if n <=2:
+        #     return n
+        # return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+
+        # Memoization approach (top-down dynamic programming with caching)
+        memo = {}
+        if n <= 2:
+            return n
+        if n in memo:
+            return memo[n]
+        memo[n] = self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        return memo[n]
+
 s = Solution()
 print(s.climbStairs(2)) # 2
 print(s.climbStairs(3)) # 3
